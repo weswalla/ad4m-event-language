@@ -9,16 +9,38 @@ properties: {
   "expression_data_schema": '{
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://example.com/product.schema.json",
-    "title": "Product",
-    "description": "A product from Acme catalog",
+    "title": "Event",
+    "description": "A schema for event expressions.",
     "type": "object",
     "properties": {
-      "productId": {
-        "description": "The unique identifier for a product",
-        "type": "integer"
+      "created_by": {
+        "description": "Agent pub key of the event expression creator.",
+        "type": "string"
+      },
+      "title": {
+        "description": "The event title.",
+        "type": "string"
+      },
+      "description": {
+        "description": "The event description.",
+        "type": "string"
+      },
+      "start_time": {
+        "description": "The start time of the event (in UTC).",
+        "type": "string"
+      },
+      "end_time": {
+        "description": "The end time of the event (in UTC).",
+        "type": "string"
+      },
+      "location": {
+        "description": "The location of the event.",
+        "type": "string"
+      },
+      "invitees": {
+        "description": "A list of agent pub keys attending the event.",
+        "type": ["string"]
       }
-    },
-    "required": [ "productId" ]
   }',
 }
 zomes: 
