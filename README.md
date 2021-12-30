@@ -1,6 +1,6 @@
-# Generic-Expression
+# Event Language
 
-An ad4m language to store generic experssion with Holochain.
+An ad4m language to created event expressions. Uses the [Generic Expression](https://github.com/juntofoundation/Generic-Expression) Holochain backend.
 
 ## Developement
 
