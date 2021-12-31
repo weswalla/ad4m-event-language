@@ -13,8 +13,17 @@ module.exports = (orchestrator) => {
             "generic_expression",
             "create_expression",
             { 
+                // data: `{
+                //     "productId": 1
+                // }`,
                 data: `{
-                    "productId": 1
+                    "created_by": "1234",
+                    "title": "The Event",
+                    "description": "an event",
+                    "start_time": "12345",
+                    "end_time": "123456",
+                    "location": "internet",
+                    "invitees": "1234"
                 }`,
                 author: "did://alice",
                 timestamp: new Date().toISOString(),
@@ -34,8 +43,17 @@ module.exports = (orchestrator) => {
                 "generic_expression",
                 "create_expression",
                 { 
+                    // data: `{
+                    //     "productId": "1"
+                    // }`,
                     data: `{
-                        "productId": "1"
+                        "created_by": 1234,
+                        "title": "The Event",
+                        "description": "an event",
+                        "start_time": "12345",
+                        "end_time": "123456",
+                        "location": "internet",
+                        "invitees": "1234"
                     }`,
                     author: "did://alice",
                     timestamp: new Date().toISOString(),
@@ -68,7 +86,7 @@ module.exports = (orchestrator) => {
         );
         console.log("Got expressions by author: ", expressions);
         t.equal(expressions.length, 1);
-        t.equal(expressions[0].data.productId, 1);
+        t.equal(expressions[0].data.title, "The Event");
         t.equal(expressions[0].author, "did://alice");
     
         // Get experssion by its address
@@ -78,7 +96,7 @@ module.exports = (orchestrator) => {
             entryHash,
         )
         console.log("Got expression by address: ", expression);
-        t.equal(expression.data.productId, 1);
+        t.equal(expression.data.title, "The Event");
         t.equal(expression.author, "did://alice");
     
     });

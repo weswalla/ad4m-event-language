@@ -39,8 +39,9 @@ properties: {
       },
       "invitees": {
         "description": "A list of agent pub keys attending the event.",
-        "type": ["string"]
+        "type": "string"
       }
+    }
   }',
 }
 zomes: 

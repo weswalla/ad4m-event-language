@@ -18,8 +18,17 @@ module.exports = (orchestrator) => {
             {
                 to: bob_happ.agent,
                 expression: { 
+                    // data: `{
+                    //     "productId": 3
+                    // }`,
                     data: `{
-                        "productId": 3
+                        "created_by": "1234",
+                        "title": "The Event",
+                        "description": "an event",
+                        "start_time": "12345",
+                        "end_time": "123456",
+                        "location": "internet",
+                        "invitees": "1234"
                     }`,
                     author: "did://alice",
                     timestamp: new Date().toISOString(),
@@ -41,8 +50,17 @@ module.exports = (orchestrator) => {
                 {
                     to: bob_happ.agent,
                     expression: { 
+                        // data: `{
+                        //     "productId": "id"
+                        // }`,
                         data: `{
-                            "productId": "id"
+                            "created_by": 1234,
+                            "title": "The Event",
+                            "description": "an event",
+                            "start_time": "12345",
+                            "end_time": "123456",
+                            "location": "internet",
+                            "invitees": "1234"
                         }`,
                         author: "did://alice",
                         timestamp: new Date().toISOString(),
@@ -69,7 +87,7 @@ module.exports = (orchestrator) => {
         );
         console.log("Got private experssion from all: ", expressionsFromAll);
         t.equal(expressionsFromAll.length, 1);
-        t.equal(expressionsFromAll[0].data.productId, 3);
+        t.equal(expressionsFromAll[0].data.title, "The Event");
 
         // Get private expressions from alice
         const expressionsFromAlice = await bob_happ.cells[0].call(
@@ -82,7 +100,7 @@ module.exports = (orchestrator) => {
         );
         console.log("Got private experssion from Alice: ", expressionsFromAlice);
         t.equal(expressionsFromAlice.length, 1);
-        t.equal(expressionsFromAlice[0].data.productId, 3);
+        t.equal(expressionsFromAlice[0].data.title, "The Event");
 
         // Get private expressions from charlie
         const expressionsFromCharlie = await bob_happ.cells[0].call(
