@@ -28,7 +28,7 @@ module.exports = (orchestrator) => {
                         "start_time": "12345",
                         "end_time": "123456",
                         "location": "internet",
-                        "invitees": "1234"
+                        "invitees": ["1234"]
                     }`,
                     author: "did://alice",
                     timestamp: new Date().toISOString(),
@@ -60,7 +60,7 @@ module.exports = (orchestrator) => {
                             "start_time": "12345",
                             "end_time": "123456",
                             "location": "internet",
-                            "invitees": "1234"
+                            "invitees": ["1234"]
                         }`,
                         author: "did://alice",
                         timestamp: new Date().toISOString(),
