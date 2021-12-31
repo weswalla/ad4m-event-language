@@ -4,7 +4,7 @@ import path from "path";
 export const localConductorConfig = Config.gen();
 
 // Construct proper paths for your DNAs
-const genericExpression = path.join(__dirname, "../../../workdir/generic-expression.dna");
+const genericExpression = path.join(__dirname, "../../../workdir/event-expression.dna");
 
 // Create an InstallAgentsHapps array with your DNAs to tell tryorama what
 // to install into the conductor.
