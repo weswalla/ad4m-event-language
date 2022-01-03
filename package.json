@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "CARGO_TARGET_DIR=target cargo build --release --target wasm32-unknown-unknown && hc dna pack workdir && npm i && tsc && rollup -c",
+    "build-icons": "rollup -c rollup.config.icons.js",
+    "build": "CARGO_TARGET_DIR=target cargo build --release --target wasm32-unknown-unknown && hc dna pack workdir && npm i && npm run build-icons && tsc && rollup -c",
     "build-dna": "nix-shell --run ./build.sh",
     "build-nix": "npm run build-dna && tsc && rollup -c",
     "dev": "tsc && rollup -c -w"

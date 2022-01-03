@@ -2,6 +2,7 @@ import type { Address, Agent, Language, HolochainLanguageDelegate, LanguageConte
 import GenericExpressionAdapter from "./adapter";
 import GenericExpressionAuthorAdapter from "./authorAdapter";
 import { CONFIG, DNA } from "./dna";
+import { NoteExpressionUI } from './noteExpressionUI'
 
 function interactions(expression: Address): Interaction[] {
   return [];
@@ -16,11 +17,13 @@ export default async function create(context: LanguageContext): Promise<Language
 
   const expressionAdapter = new GenericExpressionAdapter(context);
   const authorAdaptor = new GenericExpressionAuthorAdapter(context);
+  const expressionUI = new NoteExpressionUI();
 
   return {
     name: LANGUAGE_NAME,
     expressionAdapter,
     authorAdaptor,
+    expressionUI,
     interactions,
   } as Language;
 }
